@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Penjadwalan PSO & GA</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='custom.css') }}">
+</head>
+<body>
+
+<div style="background:#fffafd; padding:8px 0; margin:0;">
+    <marquee style="color:#e37bc2; font-size:17px; font-weight:600;" scrollamount="6">
+        ✨ Selamat datang di Sistem Penjadwalan Otomatis ✨
+    </marquee>
+</div>
+
+<header>
+    Penjadwalan SMP GONDANG 1
+</header>
+
+<div class="main">
+
+    <div class="sidebar">
+        <a href="/" class="dashboard">Dashboard</a>
+        <a href="/data/guru">Data Guru</a>
+        <a href="/data/mapel">Data Mapel</a>
+        <a href="/data/kelas">Data Kelas</a>
+        <a href="/data/slot_waktu">Slot Waktu</a>
+        <a href="/run">Jalankan Algoritma</a>
+        <a href="/logout" style="margin-top:auto; color:#6e1b2c;"> ⛔ Logout</a>
+        <a href="#" id="darkModeToggle" class="darkmode-link">🌕 Dark Mode</a>
+    </div>
+
+    <div class="content">
+        <div class="container">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+</div>
+
+<footer>
+    Sistem Penjadwalan PSO & GA © 2025
+</footer>
+
+<script>
+    const btn = document.getElementById("darkModeToggle");
+    btn.onclick = () => {
+        document.body.classList.toggle("dark");
+        localStorage.setItem("theme",
+            document.body.classList.contains("dark") ? "dark" : "light"
+        );
+    };
+
+    if (localStorage.getItem("theme") === "dark") {
+        document.body.classList.add("dark");
+    }
+</script>
+
+</body>
+</html>

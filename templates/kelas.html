@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Data Kelas</h2>
+
+<table border="1" cellpadding="6" cellspacing="0">
+    <tr>
+        {% for key in data[0].keys() %}
+        <th>{{ key }}</th>
+        {% endfor %}
+    </tr>
+
+    {% for row in data %}
+    <tr>
+        {% for v in row.values() %}
+        <td>{{ v }}</td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data Guru</title>
+</head>
+<body>
+
+<h2>Data Guru</h2>
+
+<a href="/dashboard">⬅ Kembali</a>
+
+<table border="1" cellpadding="5">
+    <tr>
+        {% for k in data[0].keys() %}
+        <th>{{ k }}</th>
+        {% endfor %}
+    </tr>
+
+    {% for r in data %}
+    <tr>
+        {% for v in r.values() %}
+        <td>{{ v }}</td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>

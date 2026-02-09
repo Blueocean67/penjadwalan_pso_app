@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2> Jalankan Optimasi Jadwal </h2>
+<p>Pilih algoritma & atur parameter sesuai kebutuhan penelitian.</p>
+
+<form method="POST" class="run-form">
+
+    <label>Pilih Algoritma:</label>
+    <select name="algorithm" required>
+        <option value="GA">Genetic Algorithm</option>
+        <option value="PSO">Particle Swarm Optimization</option>
+        <option value="BOTH">Bandingkan GA & PSO (ambil terbaik)</option>
+    </select>
+
+    <hr>
+
+    <h3>⚙ Parameter GA</h3>
+    <label>Populasi:</label>
+    <input type="number" name="pop" value="60">
+
+    <label>Generasi:</label>
+    <input type="number" name="gen" value="120">
+
+    <label>Mutation Rate:</label>
+    <input type="text" name="mut" value="0.05">
+
+    <hr>
+
+    <h3>⚙ Parameter PSO</h3>
+
+    <label>Swarm Size:</label>
+    <input type="number" name="sw" value="30">
+
+    <label>Generasi:</label>
+    <input type="number" name="gen_pso" value="120">
+
+    <label>w:</label>
+    <input type="text" name="w" value="0.7">
+
+    <label>c1:</label>
+    <input type="text" name="c1" value="1.5">
+
+    <label>c2:</label>
+    <input type="text" name="c2" value="1.5">
+
+    <br><br>
+    <button type="submit">▶ Jalankan Penjadwalan</button>
+</form>
+
+<style>
+.run-form label { margin-top: 10px; display:block; font-weight:600; }
+.run-form input, .run-form select {
+    padding:6px; width:300px; margin-bottom:10px;
+}
+</style>
+
+{% endblock %}

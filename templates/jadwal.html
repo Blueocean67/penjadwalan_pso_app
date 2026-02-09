@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2>Data Jadwal</h2>
+
+<table border="1" cellpadding="8">
+    <tr>
+        <th>ID</th>
+        <th>Guru</th>
+        <th>Mapel</th>
+        <th>Kelas</th>
+        <th>Waktu</th>
+    </tr>
+
+    {% for j in data %}
+    <tr>
+        <td>{{ j[0] }}</td>
+        <td>{{ j[1] }}</td>
+        <td>{{ j[2] }}</td>
+        <td>{{ j[3] }}</td>
+        <td>{{ j[4] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

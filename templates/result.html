@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Hasil Penjadwalan</h2>
+<p><b>Fitness terbaik:</b> {{ fit }}</p>
+
+<hr>
+
+<div style="margin-bottom:20px;">
+    <h3>Grafik Fitness Per Generasi</h3>
+    <img src="{{ url_for('static', filename='fitness_chart.png') }}" 
+         alt="Grafik Fitness" 
+         style="max-width:100%; height:auto; border:1px solid #ccc; padding:5px;"/>
+</div>py
+
+<div style="margin-bottom:20px;">
+    <a href="{{ url_for('download_pdf') }}" 
+       style="padding:8px 14px;
+              background:#0d6efd;
+              color:white;
+              text-decoration:none;
+              border-radius:6px;
+              font-weight:500;">
+        ⬇ Download PDF Per Kelas
+    </a>
+</div>
+
+
+{% for kelas, rows in jadwal.items() %}
+<h3>Kelas {{ kelas }}</h3>
+
+<table border="1" cellpadding="5" cellspacing="0">
+    <tr>
+        <th>Hari</th>
+        <th>Jam</th>
+        <th>Mapel</th>
+        <th>Guru</th>
+    </tr>
+    {% for r in rows %}
+    <tr>
+        <td>{{ r.Hari }}</td>
+        <td>{{ r.Jam }}</td>
+        <td>{{ r.Mapel }}</td>
+        <td>{{ r.Guru }}</td>
+    </tr>
+    {% endfor %}
+</table>
+<br>
+{% endfor %}
+{% endblock %}  bnerin

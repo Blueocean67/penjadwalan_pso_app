@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='custom.css') }}">
+</head>
+<body class="login-body">
+
+<div class="login-wrapper">
+    <div class="login-box">
+
+        <!-- LOGO -->
+        <img src="{{ url_for('static', filename='img/gondangg.png') }}" 
+             alt="gondangg"
+             style="width:150px; margin-bottom:12px; border-radius:10px;">
+
+        <h2>🔐 Login</h2>
+
+        {% if error %}
+        <p class="error">{{ error }}</p>
+        {% endif %}
+
+        <form method="POST">
+            <input type="text" name="username" placeholder="Username" required><br>
+            <input type="password" name="password" placeholder="Password" required><br>
+            <button type="submit">Login</button>
+        </form>
+
+    </div>
+</div>
+
+</body>
+</html>
